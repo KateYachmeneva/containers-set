@@ -5,15 +5,11 @@ export default class Team {
 
   add(member) {
     // const checkExist = [...this.members].forEach((item) => Object.values(member).forEach((key) =>
-    // // eslint-disable-next-line indent
-    // // eslint-disable-next-line implicit-arrow-linebreak
     //   Object.values(item).includes(key)));
-    // eslint-disable-next-line no-trailing-spaces
-    const checkExist = [...this.members].some((item) => Object.values(member).every((key) => 
-      // eslint-disable-next-line implicit-arrow-linebreak
-      // eslint-disable-next-line implicit-arrow-linebreak
-      Object.values(item).includes(key)));
-    if (checkExist) {
+    const memberArr = Object.values(member);
+    const arr = [...this.members];
+    const ex = arr.some((item) => memberArr.every((key) => Object.values(item).includes(key)));
+    if (ex) {
       throw new Error('Такой персонаж уже существует');
     }
     this.members.add(member);
