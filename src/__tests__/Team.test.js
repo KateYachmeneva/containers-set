@@ -25,10 +25,10 @@ test('Метод addAll добавляет несколько персонаже
 });
 test('Метод addAll не должен добавлять дублирующих персонажей ', () => {
   const team = new Team();
-  team.addAll(character1, character2, character3, character3);
+  team.addAll(character1, character2, character2, character3);
   expect(team.members.size).toBe(3);
 });
-test('Метод должен добавлять несколько персонажей,если их некоторые ключи совпадают',() => {
+test('Метод должен добавлять несколько персонажей,если их некоторые ключи совпадают', () => {
   const team = new Team();
   const character4 = {
     name: 'Petr',
